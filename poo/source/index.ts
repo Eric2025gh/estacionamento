@@ -44,7 +44,7 @@ alert(segundo.finalizacao());
 
 }
 
-console.log("oi")
+console.log("oi");
 
 
 

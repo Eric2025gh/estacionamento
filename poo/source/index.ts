@@ -46,7 +46,7 @@ alert(segundo.finalizacao());
 
 }
 
- console.log("oi");
+alert("bora");
 
 
  

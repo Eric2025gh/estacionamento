@@ -1,7 +1,9 @@
 import { Veiculos } from "./veiculos";
-import { Entrada } from "./tudocerto";
-import { Saida } from "./tudocerto";
-import { estacionamento } from "./tudocerto";
+import { Entrada } from "./entrada";
+import { Saida } from "./saida";
+
+
+export let estacionamento : Entrada[] = [];
 
 
 let marquinha : string ;
@@ -44,7 +46,6 @@ alert(segundo.finalizacao());
 
 }
 
-console.log("oi");
 
 
 

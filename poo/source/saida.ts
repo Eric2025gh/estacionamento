@@ -1,17 +1,5 @@
-/*import { Veiculos } from "./veiculos";
-
-export let estacionamento : Entrada[] = [];
-
-export class Entrada{
-
-dataDeEntrada : Date;
-veiculo : Veiculos;
-
-constructor(v:Veiculos){
-this.dataDeEntrada = (new Date);
-this.veiculo = v;
-}
-}
+import { Veiculos } from "./veiculos";
+import { estacionamento } from ".";
 
 export class Saida{
 
@@ -41,5 +29,4 @@ estacionamento.splice(localizacao,1);
 return `TOTAL DE HORAS ESTACIONADO: ${tempo} \n VALOR A SER PAGO PARA RETIRAR O CARRO: ${valorPagar}`;
 }
 
-}*/
-
+}

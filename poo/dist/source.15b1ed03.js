@@ -714,8 +714,13 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"eGa6Y":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "estacionamento", ()=>estacionamento);
 var _veiculos = require("./veiculos");
-var _tudocerto = require("./tudocerto");
+var _entrada = require("./entrada");
+var _saida = require("./saida");
+let estacionamento = [];
 let marquinha;
 let corzinha;
 let plaquinha;
@@ -731,16 +736,17 @@ while(perguntaInicial != "sair"){
         corzinha = prompt("digite a cor do seu carro");
         plaquinha = prompt("digite com cuidado a placa do seu carro");
         let novo = new (0, _veiculos.Veiculos)(marquinha, corzinha, plaquinha);
-        let primeiro = new (0, _tudocerto.Entrada)(novo);
-        (0, _tudocerto.estacionamento).push(primeiro);
+        let primeiro = new (0, _entrada.Entrada)(novo);
+        estacionamento.push(primeiro);
     } else {
         let placao = prompt("digite corretamente a placa do seu carro, por favor");
-        let segundo = new (0, _tudocerto.Saida)(placao);
+        let segundo = new (0, _saida.Saida)(placao);
         alert(segundo.finalizacao());
     }
 }
+alert("bora");
 
-},{"./veiculos":"c30PW","./tudocerto":"7fwaf"}],"c30PW":[function(require,module,exports,__globalThis) {
+},{"./veiculos":"c30PW","./entrada":"jOiqR","./saida":"d69ih","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"c30PW":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Veiculos", ()=>Veiculos);
@@ -782,19 +788,22 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"7fwaf":[function(require,module,exports,__globalThis) {
+},{}],"jOiqR":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "estacionamento", ()=>estacionamento);
 parcelHelpers.export(exports, "Entrada", ()=>Entrada);
-parcelHelpers.export(exports, "Saida", ()=>Saida);
-let estacionamento = [];
 class Entrada {
     constructor(v){
         this.dataDeEntrada = new Date;
         this.veiculo = v;
     }
 }
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"d69ih":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Saida", ()=>Saida);
+var _ = require(".");
 class Saida {
     constructor(p){
         this.dataDeSaida = new Date;
@@ -803,16 +812,16 @@ class Saida {
     finalizacao() {
         let localizacao, i;
         localizacao = 0;
-        for(i = 0; i < estacionamento.length; i++)if (this.placa == estacionamento[i].veiculo.placa) localizacao = i;
+        for(i = 0; i < (0, _.estacionamento).length; i++)if (this.placa == (0, _.estacionamento)[i].veiculo.placa) localizacao = i;
         let tempo;
-        tempo = this.dataDeSaida.getTime() - estacionamento[localizacao].dataDeEntrada.getTime();
+        tempo = this.dataDeSaida.getTime() - (0, _.estacionamento)[localizacao].dataDeEntrada.getTime();
         tempo = tempo / 3600000;
         let valorPagar = tempo * 5;
-        estacionamento.splice(localizacao, 1);
+        (0, _.estacionamento).splice(localizacao, 1);
         return `TOTAL DE HORAS ESTACIONADO: ${tempo} \n VALOR A SER PAGO PARA RETIRAR O CARRO: ${valorPagar}`;
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["cuEdQ","eGa6Y"], "eGa6Y", "parcelRequire8b57", {})
+},{".":"eGa6Y","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["cuEdQ","eGa6Y"], "eGa6Y", "parcelRequire8b57", {})
 
 //# sourceMappingURL=source.15b1ed03.js.map

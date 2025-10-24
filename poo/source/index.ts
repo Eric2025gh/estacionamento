@@ -1,12 +1,12 @@
 import { Veiculos } from "./veiculos";
 import { Entrada } from "./entrada";
 import { Saida } from "./saida";
-
+import { Cliente } from "./cliente";
 
 export let estacionamento : Entrada[] = [];
 
 
-let marquinha : string ;
+/*let marquinha : string ;
 let corzinha : string  ;
 let plaquinha : string ;
 
@@ -46,10 +46,8 @@ alert(segundo.finalizacao());
 
 }
 
-alert("bora");
+alert("bora");*/
 
-
- 
 
 
 
